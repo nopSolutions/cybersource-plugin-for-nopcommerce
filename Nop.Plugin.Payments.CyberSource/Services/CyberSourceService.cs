@@ -951,6 +951,8 @@ namespace Nop.Plugin.Payments.CyberSource.Services
                     BillTo: orderInformationBillTo);
                 var consumerAuthenticationInformation = new Riskv1decisionsConsumerAuthenticationInformation(ReferenceId: referenceId,
                     ReturnUrl: returnUrl);
+                if (_cyberSourceSettings.PayerAuthenticationRequired)
+                    consumerAuthenticationInformation.ChallengeCode = "04"; //challenge requested (mandate)
                 var requestObj = new CheckPayerAuthEnrollmentRequest(OrderInformation: orderInformation,
                     ConsumerAuthenticationInformation: consumerAuthenticationInformation);
                 if (customerToken is not null)

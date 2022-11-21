@@ -87,6 +87,18 @@
                         <span asp-validation-for="PayerAuthenticationEnabled"></span>
                     </div>
                 </div>
+                <nop-nested-setting asp-for="PayerAuthenticationEnabled">
+                    <div class="form-group row" id="payer-authentication-force">
+                        <div class="col-md-3">
+                            <nop-override-store-checkbox asp-for="PayerAuthenticationRequired_OverrideForStore" asp-input="PayerAuthenticationRequired" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                            <nop-label asp-for="PayerAuthenticationRequired" />
+                        </div>
+                        <div class="col-md-9">
+                            <nop-editor asp-for="PayerAuthenticationRequired" />
+                            <span asp-validation-for="PayerAuthenticationRequired"></span>
+                        </div>
+                    </div>
+                </nop-nested-setting>
                 <div class="form-group row">
                     <div class="col-md-3">
                         <nop-override-store-checkbox asp-for="TransactionTypeId_OverrideForStore" asp-input="TransactionTypeId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
@@ -178,8 +190,10 @@
         var selectedMethodId = $('#@Html.IdFor(model => model.PaymentConnectionMethodId)').val();
         if (selectedMethodId && selectedMethodId == flexMicroform) {
             $('#payer-authentication').showElement();
+            $('#payer-authentication-force').showElement();
         } else {
             $('#payer-authentication').hideElement();
+            $('#payer-authentication-force').hideElement();
         }
     }
 </script>

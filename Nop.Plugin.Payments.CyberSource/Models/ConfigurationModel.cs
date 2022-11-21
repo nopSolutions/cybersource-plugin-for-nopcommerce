@@ -42,6 +42,10 @@ namespace Nop.Plugin.Payments.CyberSource.Models
         public bool PayerAuthenticationEnabled { get; set; }
         public bool PayerAuthenticationEnabled_OverrideForStore { get; set; }
 
+        [NopResourceDisplayName("Plugins.Payments.CyberSource.Fields.PayerAuthenticationRequired")]
+        public bool PayerAuthenticationRequired { get; set; }
+        public bool PayerAuthenticationRequired_OverrideForStore { get; set; }
+
         [NopResourceDisplayName("Plugins.Payments.CyberSource.Fields.TransactionType")]
         public int TransactionTypeId { get; set; }
         public bool TransactionTypeId_OverrideForStore { get; set; }

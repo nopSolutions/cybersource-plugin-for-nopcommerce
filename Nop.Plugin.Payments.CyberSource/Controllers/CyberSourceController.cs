@@ -69,6 +69,7 @@ namespace Nop.Plugin.Payments.CyberSource.Controllers
                 TokenizationEnabled = settings.TokenizationEnabled,
                 PaymentConnectionMethodId = (int)settings.PaymentConnectionMethod,
                 PayerAuthenticationEnabled = settings.PayerAuthenticationEnabled,
+                PayerAuthenticationRequired = settings.PayerAuthenticationRequired,
                 TransactionTypeId = (int)settings.TransactionType,
                 CvvRequired = settings.CvvRequired,
                 AvsActionTypeId = (int)settings.AvsActionType,
@@ -88,6 +89,7 @@ namespace Nop.Plugin.Payments.CyberSource.Controllers
                 model.TokenizationEnabled_OverrideForStore = await _settingService.SettingExistsAsync(settings, setting => setting.TokenizationEnabled, storeId);
                 model.PaymentConnectionMethodId_OverrideForStore = await _settingService.SettingExistsAsync(settings, setting => setting.PaymentConnectionMethod, storeId);
                 model.PayerAuthenticationEnabled_OverrideForStore = await _settingService.SettingExistsAsync(settings, setting => setting.PayerAuthenticationEnabled, storeId);
+                model.PayerAuthenticationRequired_OverrideForStore = await _settingService.SettingExistsAsync(settings, setting => setting.PayerAuthenticationRequired, storeId);
                 model.TransactionTypeId_OverrideForStore = await _settingService.SettingExistsAsync(settings, setting => setting.TransactionType, storeId);
                 model.CvvRequired_OverrideForStore = await _settingService.SettingExistsAsync(settings, setting => setting.CvvRequired, storeId);
                 model.AvsActionTypeId_OverrideForStore = await _settingService.SettingExistsAsync(settings, setting => setting.AvsActionType, storeId);
@@ -124,6 +126,7 @@ namespace Nop.Plugin.Payments.CyberSource.Controllers
             settings.TokenizationEnabled = model.TokenizationEnabled;
             settings.PaymentConnectionMethod = (ConnectionMethodType)model.PaymentConnectionMethodId;
             settings.PayerAuthenticationEnabled = model.PayerAuthenticationEnabled;
+            settings.PayerAuthenticationRequired = model.PayerAuthenticationRequired;
             settings.TransactionType = (TransactionType)model.TransactionTypeId;
             settings.CvvRequired = model.CvvRequired;
             settings.AvsActionType = (AvsActionType)model.AvsActionTypeId;
@@ -139,6 +142,7 @@ namespace Nop.Plugin.Payments.CyberSource.Controllers
             await _settingService.SaveSettingOverridablePerStoreAsync(settings, setting => setting.TokenizationEnabled, model.TokenizationEnabled_OverrideForStore, storeId, false);
             await _settingService.SaveSettingOverridablePerStoreAsync(settings, setting => setting.PaymentConnectionMethod, model.PaymentConnectionMethodId_OverrideForStore, storeId, false);
             await _settingService.SaveSettingOverridablePerStoreAsync(settings, setting => setting.PayerAuthenticationEnabled, model.PayerAuthenticationEnabled_OverrideForStore, storeId, false);
+            await _settingService.SaveSettingOverridablePerStoreAsync(settings, setting => setting.PayerAuthenticationRequired, model.PayerAuthenticationRequired_OverrideForStore, storeId, false);
             await _settingService.SaveSettingOverridablePerStoreAsync(settings, setting => setting.TransactionType, model.TransactionTypeId_OverrideForStore, storeId, false);
             await _settingService.SaveSettingOverridablePerStoreAsync(settings, setting => setting.CvvRequired, model.CvvRequired_OverrideForStore, storeId, false);
             await _settingService.SaveSettingOverridablePerStoreAsync(settings, setting => setting.AvsActionType, model.AvsActionTypeId_OverrideForStore, storeId, false);

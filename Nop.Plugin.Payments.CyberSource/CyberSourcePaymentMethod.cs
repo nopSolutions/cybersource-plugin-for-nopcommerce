@@ -672,6 +672,8 @@ namespace Nop.Plugin.Payments.CyberSource
                 ["Plugins.Payments.CyberSource.Fields.MerchantId.Required"] = "Merchant ID is required",
                 ["Plugins.Payments.CyberSource.Fields.PayerAuthenticationEnabled"] = "Enable Payer Authentication",
                 ["Plugins.Payments.CyberSource.Fields.PayerAuthenticationEnabled.Hint"] = "Determine whether Payer Authentication (3-D Secure) is enabled.",
+                ["Plugins.Payments.CyberSource.Fields.PayerAuthenticationRequired"] = "Force Payer Authentication",
+                ["Plugins.Payments.CyberSource.Fields.PayerAuthenticationRequired.Hint"] = "Determine whether Payer Authentication (3-D Secure) is required.",
                 ["Plugins.Payments.CyberSource.Fields.PaymentConnectionMethod"] = "Payment connection method",
                 ["Plugins.Payments.CyberSource.Fields.PaymentConnectionMethod.Hint"] = "Choose the payment connection method.",
                 ["Plugins.Payments.CyberSource.Fields.SecretKey"] = "Secret Key",

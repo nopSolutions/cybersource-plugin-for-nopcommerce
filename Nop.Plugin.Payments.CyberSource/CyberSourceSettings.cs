@@ -44,6 +44,11 @@ namespace Nop.Plugin.Payments.CyberSource
         public bool PayerAuthenticationEnabled { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether payer authentication is required
+        /// </summary>
+        public bool PayerAuthenticationRequired { get; set; }
+
+        /// <summary>
         /// Gets or sets the transaction type
         /// </summary>
         public TransactionType TransactionType { get; set; }
